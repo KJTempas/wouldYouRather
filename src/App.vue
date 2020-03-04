@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <p> testing to see if I can save</p>
+    <WouldYouRather></WouldYouRather>>
+
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WouldYouRatherQuestion from './components/WouldYouRatherQuestion.vue'WouldYouRatherQuestion
 
 export default {
   name: 'App',
