@@ -4,6 +4,7 @@
  <h1> Would you rather...</h1>
 
         <would-you-rather-question
+         v-bind:key="id"
             
             v-bind:question= "question"
             v-bind:answer1= "answer1"
@@ -35,20 +36,23 @@ export default {
     //create and export component here
     name: 'WouldYouRatherQuestion',
     data() { //data is  a function, and returns an object w/ data in it
-        return {
+        return {   //data is for internal use - belong to this component
             choice: ''
+           // idAndAnswer: '' //not sure about this
         }
     },
-    props: {
-        //id: Number,  //not needed?
+    props: {  //props are for data pass IN from parent component (App.vue)
+        id: Number,  
         question: String,
         answer1: String,
         answer2: String
     },
     methods: {
-        answerChanged() {
+        answerChanged(id, answer) { //sending data from child to parent; object of question Id and answer
+        let idAndAnswer = {id: this.id, answer: this.answer}
             console.log('event emitted from child')
-            this.$emit('answer', answer)
+            this.$emit('idAndAnswer', idAndAnswer)
+            //this.$emit('answer', answer)
             
         }
     }

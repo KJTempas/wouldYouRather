@@ -2,8 +2,8 @@
   <div id="app">
     <h1>Would you rather ...</h1>
     <WouldYouRatherQuestion>v-for="question in questions" </WouldYouRatherQuestion>
-    <Answers>v-for="answer in answers" </Answers>
-    <h2> {{ question }} </h2>
+    <Answers>v-for="answer in answers" </Answers> 
+    
   </div>
   
   
@@ -36,7 +36,8 @@ export default {
           answer1: 'Be able to type/text very fast',
           answer2: 'Be able to read really quickly'
         }
-      ]
+      ],
+      answers: []  //array of answers
     }
   },
   components: {
@@ -46,7 +47,8 @@ export default {
   },
   methods: {
     answerChanged(choice)  {
-      this.choice/////this not finished
+      this.choice = id.answer
+      this.answer.push(answers) //add answer to the answers array
     }
   }
 }
