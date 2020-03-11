@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="question">
         <!-- template goes here -->
  <h1> Would you rather...</h1>
   
         <h2>{{ question.question }}</h2>
         
-        <!--v-on change means when either radio button is changed, the event is emitted to the parent-->
-        <!--<input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="$emit('answer-changed', choice)">-->
+        <!--v-on change means when either radio button is changed, the the method below is called-->
+    
         <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change= 'answerChanged(id, choice)'>
         <label>{{question.answer1}}</label>
 
@@ -47,5 +47,8 @@ export default {
 </script>
 
 <style>
-
+.question{
+    background-color: lightblue
+    
+}
 </style>
