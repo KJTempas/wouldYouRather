@@ -1,8 +1,18 @@
 <template>
   <div id="app">
+
     <h1>Would you rather ...</h1>
-    <WouldYouRatherQuestion>v-for="question in questions" </WouldYouRatherQuestion>
-    <Answers>v-for="answer in answers" </Answers> 
+   
+    <WouldYouRatherQuestion> v-for="question in questions"
+      v-bind:key="question.id"    
+            v-bind:id= "id"
+            v-bind:question= "question"  
+            v-bind:answer1= "answer1"
+            v-bind:answer2= "answer2"
+            v-on:answer-changed= "answerChanged">
+    </WouldYouRatherQuestion>
+
+    <Answers> v-for="answer in answers"</Answers> 
     
   </div>
   
@@ -26,7 +36,7 @@ export default {
         },
         {
           id: 1,
-          question: 'be a famous inventor or a famous writewr?',
+          question: 'be a famous inventor or a famous writer?',
           answer1: 'Be a famous inventor',
           answer2: 'Be a famous writer',
         },
