@@ -2,7 +2,7 @@
    
    <div>
 <h1>You would rather...</h1>
-<ul v-for="answer in answers" v-bind:key="answer" >
+<ul >
     <li>{{answer}} </li>
 </ul>
     </div>

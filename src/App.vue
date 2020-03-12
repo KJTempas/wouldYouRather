@@ -1,22 +1,25 @@
 <template>
   <div id="app">
 
-    <h1>Would you rather ...</h1>
+    <h1 id="topHeader">Would you rather ...</h1>
    <div class="indivQuestion">
     <WouldYouRatherQuestion v-for="question in questions"
 
       v-bind:key="question.id"    
-            v-bind:id= "id"
-            v-bind:question= "question"  
-            v-bind:answer1= "answer1"
-            v-bind:answer2= "answer2"
+            v-bind:id= "question.id" 
+            v-bind:question= "question.question"  
+            v-bind:answer1= "question.answer1"
+            v-bind:answer2= "question.answer2"
             v-on:answer-changed= "answerChanged">
     </WouldYouRatherQuestion>
+    
     </div>
-
+<br>
     <div id="answers">
     
-    <Answers> </Answers> 
+    <Answers> </Answers>
+    <!--<Answers v-for="answer in answers"
+    v-bind:key="answer.id"> </Answers> -->
     </div>
 
   </div>
@@ -84,5 +87,8 @@ export default {
 }
 .indivQuestion{
   background-color: lightblue
+}
+#topHeader {
+  font-style: italic
 }
 </style>

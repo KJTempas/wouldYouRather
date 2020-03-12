@@ -1,20 +1,22 @@
 <template>
     <div class="question">
         <!-- template goes here -->
+          
  <h1> Would you rather...</h1>
   
-        <h2>{{ question.question }}</h2>
+        <h2>{{ question }}</h2>
         
-        <!--v-on change means when either radio button is changed, the the method below is called-->
-    
-        <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change= 'answerChanged(id, choice)'>
-        <label>{{question.answer1}}</label>
+        <!--v-on change means when either radio button is changed, the method below is called-->
+    <!--on change, call method below and send it id and choice -->
+        <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change= 'answerChanged(id, answer)'>
+        <label>{{answer1}}</label>
 
-        <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="$emit('answer-changed', choice)">
-        <label>{{question.answer2}}</label>
+        <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change= 'answerChanged(id, answer)'>
+        <label>{{answer2}}</label>
    
 
     </div>
+    
 </template>
 
 
@@ -24,12 +26,12 @@ export default {
     name: 'WouldYouRatherQuestion',
     data() { //data is  a function, and returns an object w/ data in it
         return {   //data is for internal use - belong to this component
-            choice: ''
-           // idAndAnswer: '' //not sure about this
+            //choice: ''
+            idAndAnswer: '' //not sure about this - an object w/ data in it
         }
     },
     props: {  //props are for data pass IN from parent component (App.vue)
-        id: Number,  
+        id: Number,   
         question: String,
         answer1: String,
         answer2: String
@@ -47,8 +49,10 @@ export default {
 </script>
 
 <style>
+
 .question{
     background-color: lightblue
     
 }
+
 </style>
