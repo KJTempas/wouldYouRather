@@ -17,9 +17,12 @@
 <br>
     <div id="answers">
     
-    <Answers> </Answers>
-    <!--<Answers v-for="answer in answers"
-    v-bind:key="answer.id"> </Answers> -->
+    <Answers v-for="answer in answers"
+
+      v-bind:key="answer.id"
+      v-bind:answer="answer">
+   </Answers>
+    
     </div>
 
   </div>
@@ -64,10 +67,10 @@ export default {
     
   },
   methods: {
-    answerChanged(choice)  {
-      this.choice = id.answer
+   answerChanged(answer)  { //what does this do?  similar method in WYRQ which emits answer back to parent
+      this.anwer = id.answer
       this.answer.push(answers) //add answer to the answers array
-    }
+    }  
   }
 }
 </script>

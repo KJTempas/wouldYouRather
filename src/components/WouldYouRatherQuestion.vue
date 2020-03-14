@@ -8,10 +8,10 @@
         
         <!--v-on change means when either radio button is changed, the method below is called-->
     <!--on change, call method below and send it id and choice -->
-        <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change= 'answerChanged(id, answer)'>
+        <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change= 'answerChanged(id, choice)'>
         <label>{{answer1}}</label>
 
-        <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change= 'answerChanged(id, answer)'>
+        <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change= 'answerChanged(id, choice)'>
         <label>{{answer2}}</label>
    
 
@@ -26,8 +26,9 @@ export default {
     name: 'WouldYouRatherQuestion',
     data() { //data is  a function, and returns an object w/ data in it
         return {   //data is for internal use - belong to this component
-            //choice: ''
-            idAndAnswer: '' //not sure about this - an object w/ data in it
+            choice: '',
+            answer: '',
+            
         }
     },
     props: {  //props are for data pass IN from parent component (App.vue)
@@ -37,11 +38,12 @@ export default {
         answer2: String
     },
     methods: {
-        answerChanged(id, answer) { //sending data from child to parent; object of question Id and answer
-        let idAndAnswer = {id: this.id, answer: this.answer}
+        answerChanged(id, choice) { //sending data from child to parent; object of question Id and answer
+        let idAndAnswer = {id: this.id, answer: this.choice} //create the data object
             console.log('event emitted from child')
+            console.log('object is', idAndAnswer)
             this.$emit('idAndAnswer', idAndAnswer)
-            //this.$emit('answer', answer)
+            console.log('idAndAnswer is', idAndAnswer) 
             
         }
     }
