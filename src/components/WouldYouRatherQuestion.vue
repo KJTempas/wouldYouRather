@@ -28,6 +28,7 @@ export default {
         return {   //data is for internal use - belong to this component
             choice: '',
             answer: '',
+           // idAndAnswers:[]  //array to hold objects
             
         }
     },
@@ -40,10 +41,15 @@ export default {
     methods: {
         answerChanged(id, choice) { //sending data from child to parent; object of question Id and answer
         let idAndAnswer = {id: this.id, answer: this.choice} //create the data object
-            console.log('event emitted from child')
-            console.log('object is', idAndAnswer)
-            this.$emit('idAndAnswer', idAndAnswer)
-            console.log('idAndAnswer is', idAndAnswer) 
+        //let idAndAnswers = []
+           // console.log('event emitted from child')
+            console.log('object is', idAndAnswer) //original -just one object
+           // idAndAnswers.push(idAndAnswer) //test -add object to array
+            this.$emit('idAndAnswer', idAndAnswer) //- original - works for one
+            //this.$emit('idAndAnswers', idAndAnswers) //test
+           // console.log('idAndAnswers is', idAndAnswers) 
+
+
             
         }
     }

@@ -1,9 +1,9 @@
 <template>
    
-   <div>
+   <div id="answerList">
 <h1>You would rather...</h1>
-<ul >
-    <li>{{answer}} </li>
+<ul>
+    <li>{{idAndanswer}} </li>
 </ul>
     </div>
 </template>
@@ -13,8 +13,8 @@
 
 export default {
   name: 'Answers',
-  props:{
-      answers: Array
+  props:{ //props are data passed in from the parent component
+      idAndAnswer: Array
   },
 
 }
