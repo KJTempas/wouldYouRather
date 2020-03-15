@@ -2,7 +2,7 @@
   <div id="app">
 
     <h1 id="topHeader">Would you rather ...</h1>
-   <div class="indivQuestion">
+   <!--<div class="indivQuestion">-->
     <WouldYouRatherQuestion v-for="question in questions"
 
       v-bind:key="question.id"    
@@ -13,21 +13,13 @@
             v-on:answer-changed= "answerChanged">
     </WouldYouRatherQuestion>
     
-    </div>
-<br>
-    <div id="answers">
     
-    <Answers v-for="answer in answers"
-
-      v-bind:key="answer.id"
-      v-bind:answer="answer">
+    <Answers v-for="answer in answers" 
+    v-bind:key="answer.id"
+    v-bind:answer="answers.answer"> <!--binding data in parent to prop in child -->
    </Answers>
-    
-    </div>
 
   </div>
-  
-  
 </template>
 
 <script>
@@ -58,18 +50,22 @@ export default {
           answer2: 'Be able to read really quickly'
         }
       ],
-      answers: []  //array of answers
+      answers: []  //array of answers(and ids?)
     }
   },
   components: {
     WouldYouRatherQuestion,
     Answers
-    
   },
   methods: {
-   answerChanged(answer)  { //what does this do?  similar method in WYRQ which emits answer back to parent
-      this.anwer = id.answer
-      this.answer.push(answers) //add answer to the answers array
+answerChanged(idAndAnswer)  { 
+//unpack the object and add it to answers array ?
+      //this.answer = idAndAnswer.answer
+      //console.log(this.answer) //not getting here
+      //this.answers.push(answer) //add answer to the answers array
+      this.answers.push(idAndAnswer) //add answer to the answers array
+        return answers
+
     }  
   }
 }
@@ -84,13 +80,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-#answers{
-  background-color:palegreen
-  
-}
-.indivQuestion{
-  background-color: lightblue
-}
+
+
 #topHeader {
   font-style: italic
 }

@@ -27,7 +27,6 @@ export default {
     data() { //data is  a function, and returns an object w/ data in it
         return {   //data is for internal use - belong to this component
             choice: '',
-            answer: '',
            // idAndAnswers:[]  //array to hold objects
             
         }
@@ -45,7 +44,7 @@ export default {
            // console.log('event emitted from child')
             console.log('object is', idAndAnswer) //original -just one object
            // idAndAnswers.push(idAndAnswer) //test -add object to array
-            this.$emit('idAndAnswer', idAndAnswer) //- original - works for one
+            this.$emit('answerChanged', idAndAnswer) //- original - works for one
             //this.$emit('idAndAnswers', idAndAnswers) //test
            // console.log('idAndAnswers is', idAndAnswers) 
 
