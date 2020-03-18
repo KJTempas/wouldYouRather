@@ -44,7 +44,7 @@ export default {
            // console.log('event emitted from child')
             console.log('object is', idAndAnswer) //original -just one object
            // idAndAnswers.push(idAndAnswer) //test -add object to array
-            this.$emit('answerChanged', idAndAnswer) //- original - works for one
+            this.$emit('answer-changed', idAndAnswer) //- original - works for one
             //this.$emit('idAndAnswers', idAndAnswers) //test
            // console.log('idAndAnswers is', idAndAnswers) 
 

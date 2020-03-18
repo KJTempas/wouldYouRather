@@ -13,11 +13,14 @@
             v-on:answer-changed= "answerChanged">
     </WouldYouRatherQuestion>
     
-    
-    <Answers v-for="answer in answers" 
+    <h2 id="answerHeader">You would rather...</h2>
+   <!-- <p v-for="answer in answers" v-bind:key="answer"> {{answer.answer}} </p> this works but below gives list w/ bullets; bullets on L and text centered-->  
+<ul class="answers" v-for="answer in answers" v-bind:key="answer"><li> {{answer.answer}}</li> </ul>  
+
+<!--<Answers v-for="answer in answers" 
     v-bind:key="answer.id"
     v-bind:answer="answers.answer"> <!--binding data in parent to prop in child -->
-   </Answers>
+    
 
   </div>
 </template>
@@ -85,4 +88,17 @@ answerChanged(idAndAnswer)  {
 #topHeader {
   font-style: italic
 }
+#answerHeader {
+  background-color: lightgreen
+}
+ul {
+  list-style-type:square;
+  list-style-position: inside
+}
+.answers {
+  color: red;
+  font-size: 20px
+
+}
+
 </style>
