@@ -2,7 +2,6 @@
   <div id="app">
 
     <h1 id="topHeader">Would you rather ...</h1>
-   <!--<div class="indivQuestion">-->
     <WouldYouRatherQuestion v-for="question in questions"
 
       v-bind:key="question.id"    
@@ -13,25 +12,21 @@
             v-on:answer-changed= "answerChanged">
     </WouldYouRatherQuestion>
     
-    <h2 id="answerHeader">You would rather...</h2>
-   <!-- <p v-for="answer in answers" v-bind:key="answer"> {{answer.answer}} </p> this works but below gives list w/ bullets; bullets on L and text centered-->  
-<ul class="answers" v-for="answer in answers" v-bind:key="answer"><li> {{answer.answer}}</li> </ul>  
 
-<!--<Answers v-for="answer in answers" 
-    v-bind:key="answer.id"
-    v-bind:answer="answers.answer"> <!--binding data in parent to prop in child -->
-    
+    <h2 id="answerHeader">You would rather...</h2>
+    <ul class="answers" v-for="answer in answers" v-bind:key="answer"><li> {{answer.answer}}</li> </ul>  
+<!--<ul class="answers" v-for="answer in answers" v-bind:key="answer.id"><li> {{answer.answer}}</li> </ul>  -->
 
   </div>
 </template>
 
-<script>
+<script>//importing components
 import WouldYouRatherQuestion from './components/WouldYouRatherQuestion.vue'
-import Answers from './components/Answers.vue'
+
 
 export default {
   name: 'App',
-  data() {
+  data() { //data is a function 
     return {
       questions: [
        {
@@ -53,25 +48,38 @@ export default {
           answer2: 'Be able to read really quickly'
         }
       ],
-      answers: []  //array of answers(and ids?)
+      answers: []  //array of answers and ids
     }
   },
   components: {
     WouldYouRatherQuestion,
-    Answers
   },
   methods: {
-answerChanged(idAndAnswer)  { 
-//unpack the object and add it to answers array ?
-      //this.answer = idAndAnswer.answer
-      //console.log(this.answer) //not getting here
-      //this.answers.push(answer) //add answer to the answers array
-      this.answers.push(idAndAnswer) //add answer to the answers array
-        return answers
+answerChanged(idAndAnswer)  { //this method is fed idAndAnswer from the child component
+//perhaps this is where you make sure that id is already in answers
+      
+      this.answers.push(idAndAnswer) //add answer to the answers array -original
+//console.log('answers and length', answers, answers.length) //original
+       return answers //original
 
-    }  
-  }
-}
+    } //original
+    //trying to catch duplicates
+    //for (let i=0; i<answers.length; i++) {
+     // console.log(answers[i].id)
+    //  if (answers[i].id === idAndAnswer.id) {
+     //   alert('You have already answered that question')
+     // } else {
+     //   this.answers.push(idAndAnswer)
+    //  return answers  
+    //  }
+
+      }
+    }
+    
+
+
+  //}
+//}
 </script>
 
 <style>
