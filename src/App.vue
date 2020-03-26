@@ -14,8 +14,8 @@
     
 
     <h2 id="answerHeader">You would rather...</h2>
-    <ul class="answers" v-for="answer in answers" v-bind:key="answer"><li> {{answer.answer}}</li> </ul>  
-<!--<ul class="answers" v-for="answer in answers" v-bind:key="answer.id"><li> {{answer.answer}}</li> </ul>  -->
+    <!--<ul class="answers" v-for="answer in answers" v-bind:key="answer"><li> {{answer.answer}}</li> </ul>  -->
+    <ul class="answers" v-for="answer in answers" v-bind:key="answer.id"><li> {{answer.answer}}</li> </ul> 
 
   </div>
 </template>
@@ -58,25 +58,24 @@ export default {
 answerChanged(idAndAnswer)  { //this method is fed idAndAnswer from the child component
 //perhaps this is where you make sure that id is already in answers
       
-      this.answers.push(idAndAnswer) //add answer to the answers array -original
+     this.answers.push(idAndAnswer) //add answer to the answers array -original
 //console.log('answers and length', answers, answers.length) //original
-       return answers //original
+      return answers //original
 
     } //original
-    //trying to catch duplicates
+
+    //test = trying to catch duplicates
     //for (let i=0; i<answers.length; i++) {
      // console.log(answers[i].id)
-    //  if (answers[i].id === idAndAnswer.id) {
-     //   alert('You have already answered that question')
+    // if (answers[i].id === idAndAnswer.id) {
+       //alert('You have already answered that question')
      // } else {
-     //   this.answers.push(idAndAnswer)
-    //  return answers  
-    //  }
+      // this.answers.push(idAndAnswer)
+     //return answers  
+     //}
 
       }
     }
-    
-
 
   //}
 //}

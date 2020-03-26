@@ -27,8 +27,7 @@ export default {
     data() { //data is  a function, and returns an object w/ data in it
         return {   //data is for internal use - belong to this component
             choice: '',
-           // idAndAnswers:[]  //array to hold objects
-            
+           //answer: ''
         }
     },
     props: {  //props are for data pass IN from parent component (App.vue)
@@ -40,15 +39,8 @@ export default {
     methods: {
         answerChanged(id, choice) { //sending data from child to parent; object of question Id and answer
         let idAndAnswer = {id: this.id, answer: this.choice} //create the data object
-        //let idAndAnswers = []
-           // console.log('event emitted from child')
-            console.log('object is', idAndAnswer) //original -just one object
-           // idAndAnswers.push(idAndAnswer) //test -add object to array
-            this.$emit('answer-changed', idAndAnswer) //- original - works for one
-            //this.$emit('idAndAnswers', idAndAnswers) //test
-           // console.log('idAndAnswers is', idAndAnswers) 
-
-
+            this.$emit('answer-changed', idAndAnswer) //emit (send) it to the parent
+        
             
         }
     }
