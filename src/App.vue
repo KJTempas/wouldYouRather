@@ -2,6 +2,7 @@
   <div id="app">
 
     <h1 id="topHeader">Would you rather ...</h1>
+    <!--loop through questions and display each one in a div-->
     <WouldYouRatherQuestion v-for="question in questions"
 
       v-bind:key="question.id"    
@@ -14,7 +15,7 @@
     
 
     <h2 id="answerHeader">You would rather...</h2>
-    <!--<ul class="answers" v-for="answer in answers" v-bind:key="answer"><li> {{answer.answer}}</li> </ul>  -->
+    <!--show answers in an ul-->
     <ul class="answers" v-for="answer in answers" v-bind:key="answer.id"><li> {{answer.answer}}</li> </ul> 
 
   </div>
@@ -56,29 +57,21 @@ export default {
   },
   methods: {
 answerChanged(idAndAnswer)  { //this method is fed idAndAnswer from the child component
-//perhaps this is where you make sure that id is already in answers
-      
-     this.answers.push(idAndAnswer) //add answer to the answers array -original
-//console.log('answers and length', answers, answers.length) //original
-      return answers //original
 
-    } //original
-
-    //test = trying to catch duplicates
-    //for (let i=0; i<answers.length; i++) {
-     // console.log(answers[i].id)
-    // if (answers[i].id === idAndAnswer.id) {
-       //alert('You have already answered that question')
-     // } else {
-      // this.answers.push(idAndAnswer)
-     //return answers  
-     //}
+    // catching duplicates
+    for (let i=0; i<this.answers.length; i++) {
+     //compare this answer's id to ids already in answers
+     if (this.answers[i].id === idAndAnswer.id) { //if it matches, alert user
+       alert('You have already answered that question')
+       return
+      } 
+       //otherwise, add to the answers array
+     }this.answers.push(idAndAnswer)
 
       }
     }
-
-  //}
-//}
+  
+}
 </script>
 
 <style>

@@ -27,7 +27,7 @@ export default {
     data() { //data is  a function, and returns an object w/ data in it
         return {   //data is for internal use - belong to this component
             choice: '',
-           //answer: ''
+           
         }
     },
     props: {  //props are for data pass IN from parent component (App.vue)
